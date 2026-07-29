@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@keyframes marquee {
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(calc(-50% - 1rem));
+
+    }
+
+}
+
+.carousel{
+
+    width:max-content;
+
+    animation:marquee 35s linear infinite;
+
+}
+
+@media (max-width:768px){
+
+.carousel{
+
+animation-duration:20s;
+
+}
+
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.carousel {
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    animation-duration: 20s;
+  }
+}
