@@ -7,6 +7,8 @@ export const phases: Phase[] = [
     description:
       "Defend your system against real-world AI risks.",
     bullets: [
+      "PII Reduction & Privacy Testing",
+      "Penetration Testing",
       "Hallucination testing",
       "Bias & fairness testing",
       "Prompt injection testing",

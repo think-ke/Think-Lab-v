@@ -21,9 +21,9 @@ const CapFramework = () => {
           {/* LEFT */}
 
           <div>
-            <h2 className="text-5xl font-black leading-tight">
+            <h2 className="text-2xl font-black leading-tight">
               Our Proven 3 Step Blueprint
-              <br />
+              
               for Bulletproof AI
             </h2>
 

@@ -11,7 +11,7 @@ import Button from "../common/Button";
 
 import ValueItem from "./ValueItem";
 
-import DashboardPreview from "../../assets/images/dashboard1.png";
+import DashboardPreview from "../../assets/images/dashboard2.png";
 
 const AboutLab = () => {
   return (
@@ -81,7 +81,7 @@ const AboutLab = () => {
 
             <div className="mt-8 flex justify-center">
               <Button>
-                Learn More
+                About Lab
               </Button>
             </div>
           </div>

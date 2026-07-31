@@ -38,15 +38,16 @@ const AssessmentCTA = () => {
             </span>
 
             <h2 className="mt-8 text-5xl font-black leading-tight text-white">
-              Do you want your AI
+              We assess the
               <br />
-              Systems assessed?
+              Entire AI Ecosystem
             </h2>
 
             <p className="mt-6 max-w-md text-violet-100 leading-7">
               Know your AI.
               Understand your risks.
               Get expert assurance you can trust.
+              We assess the entire AI value chain.
             </p>
 
             {/* Features */}
@@ -112,23 +113,28 @@ const AssessmentCTA = () => {
             {/* Floating Tags */}
 
             <FloatingTag
-              title="AI Maturity Model"
+              title="Infrastructure"
               className="left-0 top-16"
             />
 
             <FloatingTag
-              title="Cybersecurity Maturity Model"
+              title="Data Sources"
               className="right-0 top-8"
             />
 
             <FloatingTag
-              title="AI Data Maturity Model"
-              className="left-4 bottom-24"
+              title="Frameworks & Standards"
+              className="left-2 bottom-30"
             />
 
             <FloatingTag
-              title="Digital Public Infrastructure Assessment"
-              className="right-0 bottom-20"
+              title="Monitoring Systems"
+              className="left-120 bottom-60"
+            />
+
+            <FloatingTag
+              title="Governance Structures"
+              className="right-0 bottom-30"
             />
 
             {/* Platform */}
