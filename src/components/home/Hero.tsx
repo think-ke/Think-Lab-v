@@ -30,7 +30,7 @@ const Hero = () => {
             {/* Bubbles */}
             <HeroBubble
               title="ISO/IEC 42001"
-              className="absolute left-6 bottom-90"
+              className="absolute right-50 bottom-90"
               delay={0}
             />
 
@@ -42,7 +42,7 @@ const Hero = () => {
 
             <HeroBubble
               title="KS 3007"
-              className="absolute left-2 bottom-32"
+              className="absolute right-70 bottom-40"
               delay={1}
             />
 
@@ -54,7 +54,7 @@ const Hero = () => {
 
             <HeroBubble
               title="Kenya Data Protection Act"
-              className="absolute left-20 bottom-0"
+              className="absolute left-50 bottom-0"
               delay={2}
             />
           </div>
@@ -74,7 +74,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="max-w-4xl text-5xl font-extrabold leading-tight md:text-6xl lg:text-7xl"
+            className="font-heading max-w-4xl text-5xl font-extrabold leading-tight md:text-6xl lg:text-7xl"
           >
             THiNK LAB: Trusted
             <br />

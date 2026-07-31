@@ -37,7 +37,7 @@ const AboutLab = () => {
           <div className="relative">
             <div className="absolute left-7 top-0 h-full w-[2px] rounded-full bg-gradient-to-b from-violet-400 to-violet-700" />
 
-            <h3 className="mb-8 pl-12 text-xl font-black uppercase tracking-wide">
+            <h3 className="font-heading mb-8 pl-12 text-xl font-black uppercase tracking-wide">
               WE ARE:
             </h3>
 

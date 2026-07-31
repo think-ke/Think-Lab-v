@@ -25,7 +25,7 @@ const ContactUs = () => {
           {/* Robot Hand */}
 
           <motion.img
-            src="/src/assets/images/robot_hand.png"
+            src="../../assets/images/robot_hand.png"
             alt="Robot Hand"
             className="w-full"
             initial={{ opacity: 0, x: -40 }}
