@@ -2,7 +2,7 @@ import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 import Container from "../common/Container";
-
+import robotHand from "../../assets/images/robot-hand.png";
 const ContactUs = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-[#602191] to-[#7F4A9D] py-20">
@@ -25,7 +25,7 @@ const ContactUs = () => {
           {/* Robot Hand */}
 
           <motion.img
-            src="../../assets/images/robot_hand.png"
+            src={robotHand}
             alt="Robot Hand"
             className="w-full"
             initial={{ opacity: 0, x: -40 }}

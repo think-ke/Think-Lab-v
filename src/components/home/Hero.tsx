@@ -53,7 +53,7 @@ const Hero = () => {
             />
 
             <HeroBubble
-              title="Kenya Data Protection Act"
+              title="DPA 2019"
               className="absolute left-50 bottom-0"
               delay={2}
             />
