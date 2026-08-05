@@ -54,7 +54,7 @@ const Footer = () => {
                             <div className="flex items-center gap-3">
                                 <Mail size={18} />
 
-                                support@think.ke
+                                lab@think.ke
                             </div>
                         </div>
 
