@@ -25,11 +25,7 @@ const Footer = () => {
                         </h2>
 
                         <p className="mt-8 max-w-lg text-gray-300 leading-8">
-                            Our AI forum offers networking opportunities, knowledge sharing, professional
-                            development, collaboration prospects, access to resources, contributions to the
-                            advancement of AI in Africa, and a supportive community.
-                            The AI CoP is convened by the Tech Innovators Network Think Tank, a not-for-profit
-                            organisation limited by guarantee.
+                            THiNK Lab is the testing and quality assurance arm of THiNK, ensuring AI systems are safe, trustworthy, and deployment-ready. We provide independent testing, validation, and continuous monitoring of AI solutions against internationally recognised standards, including ISO/IEC 42001, ISO/IEC 23894, KS 3007 (Kenyan Code of Practice for AI), and applicable Data Protection Act (DPA) requirements, enabling organisations to build and deploy responsible AI with confidence.
                         </p>
 
                         <p className="mt-6 text-sm text-gray-400">
@@ -58,7 +54,7 @@ const Footer = () => {
                             <div className="flex items-center gap-3">
                                 <Mail size={18} />
 
-                                cop@think.ke
+                                support@think.ke
                             </div>
                         </div>
 

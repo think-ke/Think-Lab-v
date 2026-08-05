@@ -30,7 +30,7 @@ const Hero = () => {
             {/* Bubbles */}
             <HeroBubble
               title="ISO/IEC 42001"
-              className="absolute right-50 bottom-90"
+              className="absolute right-60 bottom-90"
               delay={0}
             />
 
@@ -42,19 +42,55 @@ const Hero = () => {
 
             <HeroBubble
               title="KS 3007"
-              className="absolute right-70 bottom-40"
+              className="absolute right-90 bottom-40"
               delay={1}
             />
 
             <HeroBubble
-              title="ISO 27001"
+              title="ISO/IEC 27001"
               className="absolute right-6 bottom-24"
               delay={1.5}
             />
 
             <HeroBubble
               title="DPA 2019"
-              className="absolute left-50 bottom-0"
+              className="absolute left-60 bottom-0"
+              delay={2}
+            />
+
+            <HeroBubble
+              title=" ISO 23894"
+              className="absolute left-20 bottom-65"
+              delay={2}
+            />
+
+            <HeroBubble
+              title="ISO/IEC/IEEE 29119"
+              className="absolute left-10 bottom-20"
+              delay={2}
+            />
+
+            <HeroBubble
+              title="ISO/IEC 25059"
+              className="absolute left-80 bottom-90"
+              delay={2}
+            />
+
+            <HeroBubble
+              title="1S0 9001"
+              className="absolute left-95 bottom-50"
+              delay={2}
+            />
+
+            <HeroBubble
+              title="ISO/IEC TS 4213"
+              className="absolute left-100 bottom-0"
+              delay={2}
+            />
+
+            <HeroBubble
+              title="ISO/IEC TR 24028"
+              className="absolute left-0 bottom-0"
               delay={2}
             />
           </div>
