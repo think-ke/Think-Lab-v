@@ -95,7 +95,13 @@ const AssessmentCTA = () => {
             </div>
 
             <div className="mt-12">
-              <Button>
+              <Button
+                onClick={() => {
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Start Now
               </Button>
             </div>

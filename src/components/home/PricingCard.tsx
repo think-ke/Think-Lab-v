@@ -29,21 +29,25 @@ const PricingCard = ({ plan }: Props) => {
         </p>
 
         <button
+          onClick={() => {
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
           className={`
-          mt-8
-          w-full
-          rounded-full
-          py-4
-          font-semibold
-          text-white
-          transition
+    mt-8
+    w-full
+    rounded-full
+    py-4
+    font-semibold
+    text-white
+    transition
 
-          ${
-            plan.highlighted
+    ${plan.highlighted
               ? "bg-gradient-to-r from-violet-600 to-indigo-500 hover:scale-[1.02]"
               : "bg-neutral-900 hover:bg-black"
-          }
-          `}
+            }
+  `}
         >
           {plan.button}
         </button>

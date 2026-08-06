@@ -41,9 +41,15 @@ const CapFramework = () => {
             </div>
 
             <div className="mt-12">
-              <Button>
-                Learn More
-              </Button>
+              <a
+                href="https://cap.think.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button>
+                  Learn More
+                </Button>
+              </a>
             </div>
           </div>
 

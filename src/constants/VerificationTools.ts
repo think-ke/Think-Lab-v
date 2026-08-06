@@ -11,6 +11,7 @@ export const verificationTools: VerificationTool[] = [
       "Diagnostic reporting",
       "Direct pipeline handover",
     ],
+    extLink: "https://cap.think.ke/",
   },
 
   {
@@ -23,6 +24,7 @@ export const verificationTools: VerificationTool[] = [
       "Adaptive risk mapping",
       "Regulatory grounding",
     ],
+    extLink: "https://web.think.ke/",
   },
 
   {
@@ -35,5 +37,6 @@ export const verificationTools: VerificationTool[] = [
       "Adaptive Risk management guidance",
       "Safety-by-design principles",
     ],
+    extLink: "https://playbook.think.ke/books/ai-safety-playbook",
   },
 ];

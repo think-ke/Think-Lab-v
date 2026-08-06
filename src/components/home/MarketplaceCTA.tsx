@@ -22,11 +22,15 @@ const MarketplaceCTA = () => {
           </h2>
 
           <div className="mt-10">
-            <Button>
-              Click Here
-
-              <ArrowRight size={18} />
-            </Button>
+            <a
+                href="https://web.think.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button>
+                  Click Here
+                </Button>
+              </a> 
           </div>
         </motion.div>
       </Container>

@@ -5,7 +5,7 @@ import Container from "../common/Container";
 import robotHand from "../../assets/images/robot-hand.png";
 const ContactUs = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#602191] to-[#7F4A9D] py-20">
+    <section id="contact" className="relative overflow-hidden bg-gradient-to-r from-[#602191] to-[#7F4A9D] py-20">
       {/* Background Decorations */}
 
       <div className="absolute left-16 top-0 h-60 w-60 rounded-full border-[18px] border-dashed border-violet-400/30" />

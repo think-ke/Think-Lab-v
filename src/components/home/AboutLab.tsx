@@ -80,9 +80,15 @@ const AboutLab = () => {
             </div>
 
             <div className="mt-8 flex justify-center">
-              <Button>
-                About Lab
-              </Button>
+              <a
+                href="https://cop.think.ke/media/blogs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button>
+                  About Lab
+                </Button>
+              </a>
             </div>
           </div>
         </div>

@@ -3,4 +3,5 @@ export interface VerificationTool {
   description: string;
   button: string;
   features: string[];
+  extLink: string;
 }

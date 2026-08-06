@@ -40,7 +40,11 @@ const VerificationCard = ({ tool }: Props) => {
         </div>
 
         <div className="mt-10">
-          <Button>
+          <Button onClick={() => {
+  if (tool.extLink) {
+    window.open(tool.extLink, "_blank");
+  } 
+}}>
             {tool.button}
           </Button>
         </div>
