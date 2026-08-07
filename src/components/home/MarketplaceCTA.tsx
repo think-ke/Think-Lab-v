@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 import Container from "../common/Container";

@@ -7,6 +7,7 @@ import Container from "../common/Container";
 import Button from "../common/Button";
 import ServicesCarousel from "./ServiceCarousel";
 import HeroBubble from "./HeroBubble";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -137,7 +138,11 @@ const Hero = () => {
             variants={fadeUp}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Button>Get Started</Button>
+            <Link to="/coming">
+              <Button>
+                Get Started
+              </Button>
+            </Link>
 
           </motion.div>
 

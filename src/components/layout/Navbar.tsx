@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../assets/images/TH_Logo_FA_LAB.svg";
 import Container from "../common/Container";
 import Button from "../common/Button";
-
+import { Link } from "react-router-dom";
 import { navigation } from "../../constants/navigation";
 
 const Navbar = () => {
@@ -28,8 +28,8 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${isScrolled
-            ? "bg-[#2A084E]/80 backdrop-blur-xl shadow-lg"
-            : "bg-transparent"
+          ? "bg-[#2A084E]/80 backdrop-blur-xl shadow-lg"
+          : "bg-transparent"
           }`}
       >
         <Container>
@@ -81,13 +81,15 @@ const Navbar = () => {
             {/* Right Side */}
 
             <div className="hidden lg:flex">
-              <Button
-                variant="secondary"
-                icon={false}
-                className="border-white/30 bg-white text-violet-900 hover:bg-violet-100"
-              >
-                Digital Hub
-              </Button>
+              <Link to="/coming">
+                <Button
+                  variant="secondary"
+                  icon={false}
+                  className="border-white/30 bg-white text-violet-900 hover:bg-violet-100"
+                >
+                  Digital Hub
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile */}
@@ -125,12 +127,13 @@ const Navbar = () => {
                   </a>
                 ))}
 
-                <Button
-                  variant="primary"
-                  className="mt-6 w-full justify-center"
-                >
-                  Digital Hub
-                </Button>
+                <Link to="/coming">
+                  <Button
+                    variant="primary"
+                    className="mt-6 w-full justify-center"
+                  >    Digital Hub
+                  </Button>
+                </Link>
               </div>
             </Container>
           </motion.div>

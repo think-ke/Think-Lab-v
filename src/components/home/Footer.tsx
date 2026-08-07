@@ -3,7 +3,7 @@ import FooterBackground from "../../assets/images/footer-bg.png";
 import {
     FaFacebookF,
     FaLinkedinIn,
-    FaXTwitter,
+    FaGlobe,
 } from "react-icons/fa6";
 
 import Container from "../common/Container";
@@ -60,21 +60,23 @@ const Footer = () => {
 
                         <div className="mt-10 flex gap-5">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/TechInnovatorsNetwork/"
                                 className="rounded-full bg-white/10 p-3 transition hover:bg-violet-600"
                             >
                                 <FaFacebookF />
                             </a>
 
                             <a
-                                href="#"
+                                href="https://think.ke"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="rounded-full bg-white/10 p-3 transition hover:bg-violet-600"
                             >
-                                <FaXTwitter />
+                                <FaGlobe />
                             </a>
 
                             <a
-                                href="#"
+                                href="https://www.linkedin.com/company/think-ke/posts/?feedView=all"
                                 className="rounded-full bg-white/10 p-3 transition hover:bg-violet-600"
                             >
                                 <FaLinkedinIn />
