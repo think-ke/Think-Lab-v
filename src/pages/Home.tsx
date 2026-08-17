@@ -9,6 +9,7 @@ import VerificationHub from "../components/home/VerificationHub";
 import MarketplaceCTA from "../components/home/MarketplaceCTA";
 import Newsletter from "../components/home/Newsletter";
 import Footer from "../components/home/Footer";
+import Services from "../components/home/Services";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
     <Navbar/>
     <BackgroundShapes />
     <Hero />
+    <Services/>
     <AboutLab />
     <AssessmentCTA />
     <CapFramework />

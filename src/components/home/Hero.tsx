@@ -5,7 +5,6 @@ import Navbar from "../layout/Navbar";
 import BackgroundShapes from "./BackgroundShapes";
 import Container from "../common/Container";
 import Button from "../common/Button";
-import ServicesCarousel from "./ServiceCarousel";
 import HeroBubble from "./HeroBubble";
 import { Link } from "react-router-dom";
 
@@ -146,15 +145,6 @@ const Hero = () => {
 
           </motion.div>
 
-          <motion.div
-            custom={0.6}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-20"
-          >
-            <ServicesCarousel />
-          </motion.div>
         </Container>
       </section>
     </>

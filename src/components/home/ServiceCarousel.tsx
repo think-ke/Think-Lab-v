@@ -2,10 +2,6 @@ import { services } from "../../constants/services";
 import ServiceCard from "./ServiceCard";
 
 const ServicesCarousel = () => {
-  /*
-    Duplicate the array so the
-    animation loops forever.
-  */
 
   const items = [...services, ...services];
 
@@ -16,11 +12,11 @@ const ServicesCarousel = () => {
     >
       {/* Left Fade */}
 
-      <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-32 bg-gradient-to-r from-[#2A084E] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-30 bg-gradient-to-r from-[#F5F0FA] to-transparent" />
 
       {/* Right Fade */}
 
-      <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-32 bg-gradient-to-l from-[#2A084E] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-30 bg-gradient-to-l from-[#F5F0FA] to-transparent" />
 
       <div
         className="

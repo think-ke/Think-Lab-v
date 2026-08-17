@@ -19,30 +19,32 @@ const ServiceCard = ({ service }: Props) => {
         duration: 0.25,
       }}
       className="
-      group
-      relative
-      h-[280px]
-      w-[320px]
-      flex-shrink-0
-      rounded-[28px]
-      bg-white/15
-      backdrop-blur-xl
-      border
-      border-white/20
-      p-7
-      shadow-xl
-      overflow-hidden
+        group
+        relative
+        h-[280px]
+        w-[320px]
+        flex-shrink-0
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-violet-100
+        bg-white
+        p-7
+        shadow-lg
+        transition-shadow
+        duration-300
+        hover:shadow-2xl
       "
     >
-      {/* Glow */}
+      {/* Hover Glow */}
 
       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-500/30 blur-3xl" />
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-300/30 blur-3xl" />
       </div>
 
       {/* Icon */}
 
-      <div className="relative z-10 mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg">
+      <div className="relative z-10 mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-violet-100 shadow-sm transition-colors duration-300 group-hover:bg-violet-200">
         <Icon
           className="text-violet-700"
           size={30}
@@ -52,13 +54,13 @@ const ServiceCard = ({ service }: Props) => {
 
       {/* Title */}
 
-      <h3 className="relative z-10 text-xl font-bold text-white">
+      <h3 className="font-heading relative z-10 text-xl font-bold text-[#2A084E]">
         {title}
       </h3>
 
       {/* Description */}
 
-      <p className="relative z-10 mt-4 text-sm leading-7 text-violet-100">
+      <p className="relative z-10 mt-4 text-sm leading-7 text-gray-800">
         {description}
       </p>
 
@@ -66,24 +68,25 @@ const ServiceCard = ({ service }: Props) => {
 
       <button
         className="
-        absolute
-        bottom-7
-        left-7
-        flex
-        items-center
-        gap-2
-        font-semibold
-        text-white
-        transition-all
-        duration-300
-        group-hover:gap-4
+          absolute
+          bottom-7
+          left-7
+          z-10
+          flex
+          items-center
+          gap-2
+          font-semibold
+          text-violet-700
+          transition-all
+          duration-300
+          group-hover:gap-4
         "
       >
         Learn More
 
         <ArrowRight
           size={18}
-          className="transition-transform group-hover:translate-x-1"
+          className="transition-transform duration-300 group-hover:translate-x-1"
         />
       </button>
     </motion.article>
