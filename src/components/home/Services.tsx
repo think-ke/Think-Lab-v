@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Button from "../common/Button";
 import ServicesCarousel from "./ServiceCarousel";
 import Container from "../common/Container";
 
@@ -43,7 +45,19 @@ const Services = () => {
         >
           <ServicesCarousel />
         </motion.div>
+        
       </Container>
+      <div className="mt-10 flex justify-center">
+  <Link to="/assessments">
+    <Button
+      variant="primary"
+      className="justify-center"
+    >
+      Learn More
+    </Button>
+  </Link>
+</div>
+      
     </section>
   );
 };

@@ -6,7 +6,6 @@ import BackgroundShapes from "./BackgroundShapes";
 import Container from "../common/Container";
 import Button from "../common/Button";
 import HeroBubble from "./HeroBubble";
-import { Link } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -137,11 +136,15 @@ const Hero = () => {
             variants={fadeUp}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Link to="/coming">
-              <Button>
+            <Button
+                onClick={() => {
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Get Started
               </Button>
-            </Link>
 
           </motion.div>
 

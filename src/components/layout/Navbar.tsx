@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../assets/images/TH_Logo_FA_LAB.svg";
 import Container from "../common/Container";
@@ -52,28 +52,17 @@ const Navbar = () => {
             <ul className="hidden items-center gap-8 lg:flex">
               {navigation.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="group relative text-sm font-medium text-white/90 transition"
                   >
                     {item.label}
 
-                    {item.label === "Services" && (
-                      <ChevronDown
-                        size={15}
-                        className="ml-1 inline"
-                      />
-                    )}
-
-                    {item.label === "Standards Hub" && (
-                      <ChevronDown
-                        size={15}
-                        className="ml-1 inline"
-                      />
-                    )}
+                    {(item.label === "Services" ||
+                      item.label === "Standards Hub")}
 
                     <span className="absolute left-0 -bottom-2 h-[2px] w-0 rounded-full bg-violet-300 transition-all duration-300 group-hover:w-full" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -117,14 +106,14 @@ const Navbar = () => {
             <Container>
               <div className="flex flex-col py-8">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.label}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => setMobileOpen(false)}
                     className="border-b border-white/10 py-4 text-white"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
 
                 <Link to="/coming">

@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Service } from "../../types/service";
 
@@ -64,31 +63,7 @@ const ServiceCard = ({ service }: Props) => {
         {description}
       </p>
 
-      {/* Button */}
-
-      <button
-        className="
-          absolute
-          bottom-7
-          left-7
-          z-10
-          flex
-          items-center
-          gap-2
-          font-semibold
-          text-violet-700
-          transition-all
-          duration-300
-          group-hover:gap-4
-        "
-      >
-        Learn More
-
-        <ArrowRight
-          size={18}
-          className="transition-transform duration-300 group-hover:translate-x-1"
-        />
-      </button>
+      
     </motion.article>
   );
 };
