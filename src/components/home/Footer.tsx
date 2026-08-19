@@ -23,11 +23,9 @@ const Footer = () => {
               BRAND
           ===================================================== */}
           <div>
-            <img
-              src={Logo}
-              alt="THiNK Lab"
-              className="h-14 w-auto object-contain"
-            />
+            <h2 className="text-4xl font-bold text-white">
+              LAB.
+              </h2>
 
             <p className="mt-6 max-w-xs text-sm leading-6 text-violet-200/70">
               THiNK Lab is the testing and quality assurance arm of THiNK,

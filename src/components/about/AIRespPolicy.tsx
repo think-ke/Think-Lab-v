@@ -46,14 +46,16 @@ const AIResponsibilityPolicy = () => {
                   guides how we assess, test, verify, and assure AI systems.
                 </p>
 
-                <Link
-                  to="/ai-responsibility-policy"
+                <a
+                  href="/documents/THiNKAI-Framework.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#2A084E] transition hover:bg-violet-100"
                 >
                   <FileText size={14} />
                   View Policy
                   <ArrowUpRight size={14} />
-                </Link>
+                </a>
               </div>
 
             </div>
