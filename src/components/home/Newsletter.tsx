@@ -1,126 +1,181 @@
-import { Send } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 import Container from "../common/Container";
-import robotHand from "../../assets/images/robot-hand.png";
+import Logo from "../../assets/images/TH_Logo_FA_LAB.png";
+
 const ContactUs = () => {
   return (
-    <section id="contact" className="relative overflow-hidden bg-gradient-to-r from-[#602191] to-[#7F4A9D] py-20">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-[#F8F6FB] py-12 md:py-16"
+    >
       {/* Background Decorations */}
+      <div className="pointer-events-none absolute -left-24 top-10 h-52 w-52 rounded-full border-[16px] border-violet-200/30" />
 
-      <div className="absolute left-16 top-0 h-60 w-60 rounded-full border-[18px] border-dashed border-violet-400/30" />
+      <div className="pointer-events-none absolute -right-32 top-10 h-64 w-64 rounded-full bg-violet-100/50 blur-3xl" />
 
-      <div className="absolute right-12 bottom-6 h-40 w-40 rounded-full opacity-30">
-        <div
-          className="h-full w-full rounded-full"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg,#A78BFA 0px,#A78BFA 2px,transparent 2px,transparent 6px)",
-          }}
-        />
-      </div>
+      <Container className="relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto w-full max-w-2xl rounded-[24px] border border-violet-100 bg-white px-5 py-6 shadow-[0_15px_45px_rgba(42,8,78,0.08)] md:px-8 md:py-8"
+        >
+          {/* Logo + Heading */}
+          <div className="text-center">
+            <img
+              src={Logo}
+              alt="THiNK LAB"
+              className="mx-auto w-[140px] object-contain md:w-[160px]"
+            />
 
-      <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-[280px_1fr]">
-          {/* Robot Hand */}
-
-          <motion.img
-            src={robotHand}
-            alt="Robot Hand"
-            className="w-full"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          />
-
-          {/* Contact Form */}
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl border border-white/15 bg-white/10 p-8 backdrop-blur-lg"
-          >
-            <span className="rounded-full border border-white/30 px-5 py-2 text-xs text-white">
-              Contact Us
-            </span>
-
-            <h2 className="mt-5 text-4xl font-black text-white">
-              Talk to our AI Assessment Team
+            <h2 className="font-heading mt-3 text-2xl font-bold text-[#2A084E] md:text-3xl">
+              THiNK LAB Registration
             </h2>
 
-            <p className="mt-3 max-w-xl text-violet-100">
-              Have questions about AI testing, certification, conformity
-              assessments, or responsible AI? Send us a message and our team
-              will get back to you.
+            <p className="mx-auto mt-1.5 max-w-lg text-xs leading-5 text-slate-500 md:text-sm">
+              Register your interest and choose the assessment you would like
+              to participate in.
             </p>
+          </div>
 
-            <form className="mt-10 space-y-5">
-              <div className="grid gap-5 md:grid-cols-2">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-violet-200 outline-none transition focus:border-violet-300"
-                />
+          {/* Form */}
+          <form className="mt-6 space-y-4">
 
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-violet-200 outline-none transition focus:border-violet-300"
-                />
-              </div>
+            {/* Name */}
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold text-slate-800">
+                Full Name
+              </label>
 
               <input
                 type="text"
-                placeholder="Company / Organization"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-violet-200 outline-none transition focus:border-violet-300"
+                name="name"
+                placeholder="Enter your full name"
+                required
+                className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+              />
+            </div>
+
+            {/* Email + Phone */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-xs font-semibold text-slate-800">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1.5 block text-xs font-semibold text-slate-800">
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+254 7XX XXX XXX"
+                  required
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+                />
+              </div>
+            </div>
+
+            {/* Assessment Selection */}
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold text-slate-800">
+                Select Assessment{" "}
+                <span className="font-normal text-slate-400">
+                  (You may select both)
+                </span>
+              </label>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {/* AIMM */}
+                <label className="group flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-[#FCFBFE] p-3.5 transition hover:border-violet-300 hover:bg-violet-50">
+                  <input
+                    type="checkbox"
+                    name="assessment"
+                    value="AIMM"
+                    className="mt-1 h-4 w-4 accent-violet-600"
+                  />
+
+                  <div>
+                    <p className="text-sm font-bold text-[#2A084E]">
+                      AIMM Assessment
+                    </p>
+
+                    <p className="mt-0.5 text-xs leading-4 text-slate-500">
+                      AI Maturity Model assessment.
+                    </p>
+                  </div>
+                </label>
+
+                {/* AIDMM */}
+                <label className="group flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-[#FCFBFE] p-3.5 transition hover:border-violet-300 hover:bg-violet-50">
+                  <input
+                    type="checkbox"
+                    name="assessment"
+                    value="AIDMM"
+                    className="mt-1 h-4 w-4 accent-violet-600"
+                  />
+
+                  <div>
+                    <p className="text-sm font-bold text-[#2A084E]">
+                      AIDMM Assessment
+                    </p>
+
+                    <p className="mt-0.5 text-xs leading-4 text-slate-500">
+                      AI & Data Maturity Model assessment.
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            {/* Free Assessment Notice */}
+            <div className="flex items-start gap-2.5 rounded-lg border border-violet-100 bg-violet-50/70 p-3">
+              <CheckCircle2
+                size={17}
+                className="mt-0.5 shrink-0 text-violet-600"
               />
 
-              <select
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white outline-none"
-                defaultValue=""
-              >
-                <option value="" disabled className="text-black">
-                  Select an Inquiry Type
-                </option>
+              <div>
+                <p className="text-xs font-bold text-[#2A084E]">
+                  Complimentary Assessment
+                </p>
 
-                <option className="text-black">
-                  AI Assessment
-                </option>
+                <p className="mt-0.5 text-[11px] leading-4 text-slate-600">
+                  The first 20 organisations to register will receive a
+                  complimentary assessment from THiNK LAB.
+                </p>
+              </div>
+            </div>
 
-                <option className="text-black">
-                  Certification
-                </option>
+            {/* Submit */}
+            <button
+              type="submit"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#602191] to-[#7F4A9D] px-5 py-3 text-sm font-bold text-white shadow-md shadow-violet-200 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              Register with THiNK LAB
+              <Send size={16} />
+            </button>
 
-                <option className="text-black">
-                  Risk & Impact Assessment
-                </option>
-
-                <option className="text-black">
-                  AI Verification Tools
-                </option>
-
-                <option className="text-black">
-                  General Question
-                </option>
-              </select>
-
-              <textarea
-                rows={5}
-                placeholder="Tell us about your AI system or ask your question..."
-                className="w-full resize-none rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-violet-200 outline-none transition focus:border-violet-300"
-              />
-
-              <button
-                type="submit"
-                className="flex items-center gap-3 rounded-full bg-white px-8 py-4 font-semibold text-violet-700 transition hover:scale-105 hover:bg-violet-100"
-              >
-                Send Message
-                <Send size={18} />
-              </button>
-            </form>
-          </motion.div>
-        </div>
+            <p className="text-center text-[10px] leading-4 text-slate-400">
+              By submitting this form, you agree to be contacted by the THiNK
+              LAB team regarding your registration.
+            </p>
+          </form>
+        </motion.div>
       </Container>
     </section>
   );
