@@ -6,8 +6,6 @@ import {
 } from "react-icons/fa6";
 
 import Container from "../common/Container";
-import Logo from "../../assets/images/TH_Logo_FA_LAB.svg";
-
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-[#160A26] text-white">
