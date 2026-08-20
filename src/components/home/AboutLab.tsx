@@ -17,7 +17,7 @@ const AboutLab = () => {
   return (
     <section
       id="about"
-      className="bg-white py-28"
+      className="relative isolate z-10 bg-white py-28"
     >
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.2fr_1fr]">

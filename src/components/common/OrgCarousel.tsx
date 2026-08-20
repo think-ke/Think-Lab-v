@@ -14,10 +14,14 @@ const organizations = [
     name: "FCDO",
     logo: "/logo/FCDO.png",
   },
+  {
+    name: "ARSO",
+    logo: "/logo/ARSO.png",
+  },
 ];
 
 const OrgCarousel = () => {
-  const logos = [...organizations, ...organizations];
+  const logos = [...organizations, ...organizations, ...organizations, ...organizations];
 
   return (
     <section className="relative overflow-hidden bg-[#F7F4FA] py-12 md:py-14">

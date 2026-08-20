@@ -24,9 +24,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#2A084E] text-white">
-      <BackgroundShapes />
-      <Navbar />
+    <section className="relative isolate overflow-hidden bg-[#2A084E] text-white">
+      <div className="absolute inset-0 z-0">
+        <BackgroundShapes />
+      </div>
+
+      <div className="relative z-20">
+        <Navbar />
+      </div>
 
       <Container className="relative z-10 flex min-h-[720px] flex-col justify-center pt-28 pb-14 md:min-h-[760px] md:pt-32 md:pb-16">
         {/* =====================================================

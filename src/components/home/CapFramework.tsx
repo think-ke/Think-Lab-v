@@ -9,7 +9,7 @@ import { phases } from "../../constants/phases";
 
 const CapFramework = () => {
   return (
-    <section className="bg-[#fafafa] py-28">
+    <section className="relative isolate z-10 bg-[#fafafa] py-28">
       <Container>
         <SectionHeading
           badge="CAP"
