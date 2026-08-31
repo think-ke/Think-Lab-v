@@ -1,10 +1,68 @@
-import { Send, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { Send, CheckCircle2, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 import Container from "../common/Container";
 import Logo from "../../assets/images/TH_Logo_FA_LAB.png";
 
 const ContactUs = () => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  setLoading(true);
+  setSuccess("");
+  setError("");
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  const assessments = formData.getAll("assessment") as string[];
+
+  if (assessments.length === 0) {
+    setError("Please select at least one assessment.");
+    setLoading(false);
+    return;
+  }
+
+  const payload = {
+    fullName: formData.get("name") as string,
+    email: formData.get("email") as string,
+    phone: formData.get("phone") as string,
+    assessments,
+  };
+
+  try {
+    const response = await fetch(`${API_URL}/api/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Registration failed.");
+    }
+
+    setSuccess(
+      "Thank you. Your registration has been received. We'll be in touch shortly."
+    );
+    form.reset(); // ✅ uses stored reference – safe
+  } catch (err) {
+    setError(
+      err instanceof Error ? err.message : "Something went wrong. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
     <section
       id="contact"
@@ -41,9 +99,22 @@ const ContactUs = () => {
             </p>
           </div>
 
-          {/* Form */}
-          <form className="mt-6 space-y-4">
+          {/* Feedback messages */}
+          {error && (
+            <div className="mt-4 flex items-start gap-2.5 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              <XCircle size={18} className="mt-0.5 shrink-0" />
+              <span>{error}</span>
+            </div>
+          )}
+          {success && (
+            <div className="mt-4 flex items-start gap-2.5 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-700">
+              <CheckCircle2 size={18} className="mt-0.5 shrink-0" />
+              <span>{success}</span>
+            </div>
+          )}
 
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             {/* Name */}
             <div>
               <label className="mb-1.5 block text-xs font-semibold text-slate-800">
@@ -164,10 +235,11 @@ const ContactUs = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#602191] to-[#7F4A9D] px-5 py-3 text-sm font-bold text-white shadow-md shadow-violet-200 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              disabled={loading}
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#602191] to-[#7F4A9D] px-5 py-3 text-sm font-bold text-white shadow-md shadow-violet-200 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Register with THiNK LAB
-              <Send size={16} />
+              {loading ? "Submitting..." : "Register with THiNK LAB"}
+              {!loading && <Send size={16} />}
             </button>
 
             <p className="text-center text-[10px] leading-4 text-slate-400">
