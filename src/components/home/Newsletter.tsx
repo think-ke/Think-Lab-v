@@ -53,7 +53,7 @@ const ContactUs = () => {
     setSuccess(
       "Thank you. Your registration has been received. We'll be in touch shortly."
     );
-    form.reset(); // ✅ uses stored reference – safe
+    form.reset();
   } catch (err) {
     setError(
       err instanceof Error ? err.message : "Something went wrong. Please try again."
