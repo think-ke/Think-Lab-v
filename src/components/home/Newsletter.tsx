@@ -37,7 +37,7 @@ const ContactUs = () => {
   };
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+    const response = await fetch(`https://websites-labcommbackend-v8most-adf254-144-91-120-217.sslip.io/api/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
