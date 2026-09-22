@@ -20,69 +20,114 @@ const organizations = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay },
+  }),
+};
+
 const OrgCarousel = () => {
-  const logos = [...organizations, ...organizations, ...organizations, ...organizations];
+  const logos = [
+    ...organizations,
+    ...organizations,
+    ...organizations,
+    ...organizations,
+  ];
 
   return (
-    <section className="relative overflow-hidden bg-[#F7F4FA] py-12 md:py-14">
-      <SectionHeading
-                    badge="Partners"
-                    title="Our Trusted Partners"
+    <section className="relative overflow-hidden bg-white py-10 md:py-12">
+      {/* =====================================================
+          BACKGROUND ATMOSPHERE
+      ====================================================== */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        
+        {/* Faint dot grid */}
+        <div className="absolute inset-0 opacity-[0.22] [background-image:radial-gradient(#c4b5fd_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+      </div>
+
+      {/* =====================================================
+          SECTION HEADING
+      ====================================================== */}
+      <motion.div
+        custom={0}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="relative z-10"
+      >
+        <SectionHeading
+          badge="Partners"
+          title="Our Trusted Partners"
         />
-      {/* Left fade */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-[#F7F4FA] to-transparent md:w-40" />
+      </motion.div>
 
-      {/* Right fade */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-[#F7F4FA] to-transparent md:w-40" />
-
-      <div className="overflow-hidden">
-        <motion.div
-          className="flex w-max items-center gap-14 md:gap-20"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 28,
-            ease: "linear",
-            repeat: Infinity,
+      {/* =====================================================
+          LOGO MARQUEE
+      ====================================================== */}
+      <motion.div
+        custom={0.15}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="relative z-10 mt-6 overflow-hidden"
+      >
+        <div
+          className="flex w-max items-center gap-12 md:gap-16"
+          style={{
+            animation: "orgScroll 32s linear infinite",
+            maskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           }}
         >
           {logos.map((organization, index) => (
             <motion.div
               key={`${organization.name}-${index}`}
-              whileHover={{
-                scale: 1.1,
-              }}
-              transition={{
-                duration: 0.2,
-                ease: "easeOut",
-              }}
-              className="
-                flex
-                h-24
-                w-40
-                flex-shrink-0
-                items-center
-                justify-center
-                md:h-28
-                md:w-52
-              "
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="group relative flex h-20 w-36 flex-shrink-0 items-center justify-center md:h-24 md:w-44"
             >
+              {/* Soft hover halo */}
+              <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-100/0 to-fuchsia-100/0 opacity-0 blur-xl transition-opacity duration-500 group-hover:from-violet-200/60 group-hover:to-fuchsia-200/50 group-hover:opacity-100" />
+
               <img
                 src={organization.logo}
                 alt={organization.name}
-                className="
-                  max-h-20
-                  max-w-[170px]
-                  object-contain
-                  md:max-h-24
-                  md:max-w-[200px]
-                "
+                className="relative max-h-16 max-w-[140px] object-contain transition-all duration-300 group-hover:grayscale-0 md:max-h-20 md:max-w-[170px]"
               />
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+
+        <style>{`
+          @keyframes orgScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+        `}</style>
+      </motion.div>
+
+      {/* =====================================================
+          BOTTOM ACCENT
+      ====================================================== */}
+      <motion.div
+        custom={0.3}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="relative z-10 mt-8 flex items-center justify-center gap-3 text-[9px] font-semibold uppercase tracking-[0.22em] text-slate-400"
+      >
+        <span className="h-px w-8 bg-violet-200" />
+        Trusted by industry leaders
+        <span className="h-px w-8 bg-violet-200" />
+      </motion.div>
     </section>
   );
 };

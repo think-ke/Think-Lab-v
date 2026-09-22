@@ -2,38 +2,38 @@ import { services } from "../../constants/services";
 import ServiceCard from "./ServiceCard";
 
 const ServicesCarousel = () => {
-
   const items = [...services, ...services];
 
   return (
-    <section
-      id="services"
-      className="relative mt-16 overflow-hidden"
-    >
-      {/* Left Fade */}
-
-      <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-30 bg-gradient-to-r from-[#F5F0FA] to-transparent" />
-
-      {/* Right Fade */}
-
-      <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-30 bg-gradient-to-l from-[#F5F0FA] to-transparent" />
-
+    <section id="services" className="relative overflow-hidden">
       <div
-        className="
-        carousel
-        flex
-        gap-8
-        py-4
-        hover:[animation-play-state:paused]
-        "
+        className="carousel flex gap-5 py-3 hover:[animation-play-state:paused]"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
       >
         {items.map((service, index) => (
           <ServiceCard
             key={`${service.title}-${index}`}
             service={service}
+            index={index % services.length}
           />
         ))}
       </div>
+
+      <style>{`
+        .carousel {
+          animation: servicesScroll 45s linear infinite;
+          width: max-content;
+        }
+        @keyframes servicesScroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 };
