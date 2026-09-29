@@ -1,28 +1,18 @@
-import {
-  ShieldCheck,
-  Scale,
-  Lock,
-  BadgeCheck,
-} from "lucide-react";
-
 import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
 import Button from "../common/Button";
 
-import ValueItem from "./ValueItem";
-
-import DashboardPreview from "../../assets/images/dashboard4.png";
+import VennDiagram from "./VennDiagram";
 
 const AboutLab = () => {
   return (
     <section
       id="about"
-      className="relative isolate z-10 bg-white py-28"
+      className="relative isolate z-10 overflow-hidden bg-white py-28"
     >
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.2fr_1fr]">
-          {/* LEFT */}
-
+        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.35fr]">
+          {/* LEFT — heading */}
           <div>
             <SectionHeading
               badge="THE LAB"
@@ -30,66 +20,25 @@ const AboutLab = () => {
               subtitle="Equip your organization with elite maturity assessments and intelligent guardrails."
               centered={false}
             />
-          </div>
 
-          {/* CENTER */}
-
-          <div className="relative">
-            <div className="absolute left-7 top-0 h-full w-[2px] rounded-full bg-gradient-to-b from-violet-400 to-violet-700" />
-
-            <h3 className="font-heading mb-8 pl-12 text-xl font-black uppercase tracking-wide">
-              WE ARE:
-            </h3>
-
-            <div className="space-y-7">
-              <ValueItem
-                icon={ShieldCheck}
-                title="Safe AI"
-                description="We evaluate AI systems for safety and reliability."
-              />
-
-              <ValueItem
-                icon={Scale}
-                title="Ethical AI"
-                description="We promote fairness, transparency and accountability."
-              />
-
-              <ValueItem
-                icon={Lock}
-                title="Secure AI"
-                description="We test for robustness and cybersecurity."
-              />
-
-              <ValueItem
-                icon={BadgeCheck}
-                title="Standards Aligned"
-                description="Aligned with ISO/IEC 42001, NIST AI RMF and global best practices."
-              />
-            </div>
-          </div>
-
-          {/* RIGHT */}
-
-          <div>
-            <div className="overflow-hidden rounded-3xl bg-violet-50 shadow-xl">
-              <img
-                src={DashboardPreview}
-                alt="Dashboard Preview"
-                className="w-full object-cover"
-              />
-            </div>
-
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex">
               <a
                 href="https://cop.think.ke/media/blogs"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button>
-                  About Lab
-                </Button>
+                <Button>About Lab</Button>
               </a>
             </div>
+          </div>
+
+          {/* RIGHT — interactive Venn diagram */}
+          <div className="relative">
+            <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.22em] text-violet-500/70">
+              Hover a region to explore
+            </p>
+
+            <VennDiagram className="max-w-[600px]" />
           </div>
         </div>
       </Container>
