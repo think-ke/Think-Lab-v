@@ -11,7 +11,7 @@ import Button from "../common/Button";
 
 import ValueItem from "./ValueItem";
 
-import DashboardPreview from "../../assets/images/dashboard2.png";
+import DashboardPreview from "../../assets/images/dashboard3.png";
 
 const AboutLab = () => {
   return (
