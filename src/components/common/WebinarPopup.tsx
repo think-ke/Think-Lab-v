@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -7,12 +6,21 @@ import {
   Clock3,
   Video,
   X,
+  Loader2,
+  CheckCircle2,
 } from "lucide-react";
 
 const MEETING_URL = "https://meet.google.com/rph-mtwa-kys";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
 export default function WebinarPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Registration state
+  const [step, setStep] = useState<"register" | "success">("register");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setIsOpen(true);
@@ -29,6 +37,32 @@ export default function WebinarPopup() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/webinar/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fullName, email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Registration failed. Please try again.");
+      }
+
+      setStep("success");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -157,7 +191,7 @@ export default function WebinarPopup() {
                 </div>
               </div>
 
-              {/* Topics and CTA */}
+              {/* Right Column: Topics & Registration */}
               <div className="flex flex-col justify-center rounded-xl
                 bg-[#2A084E] p-5 text-white sm:p-6">
                 <p className="text-xs font-bold uppercase tracking-[0.16em]
@@ -182,30 +216,90 @@ export default function WebinarPopup() {
 
                 <div className="my-6 h-px bg-white/15" />
 
-                <p className="text-xs leading-5 text-purple-200">
-                  Better Standards. Stronger Digital Futures.
-                </p>
+                {/* Registration Form / Success State */}
+                {step === "register" ? (
+                  <form onSubmit={handleRegister} className="space-y-4">
+                    <p className="text-xs leading-5 text-purple-200">
+                      Register to get the meeting link.
+                    </p>
+                    
+                    <div>
+                      <label htmlFor="fullName" className="sr-only">Full Name</label>
+                      <input
+                        id="fullName"
+                        type="text"
+                        required
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="Full Name"
+                        className="w-full rounded-lg bg-white/10 px-4 py-2.5 text-sm text-white placeholder-purple-200/70 border border-white/10 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="sr-only">Email Address</label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Email Address"
+                        className="w-full rounded-lg bg-white/10 px-4 py-2.5 text-sm text-white placeholder-purple-200/70 border border-white/10 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                      />
+                    </div>
 
-                <a
-                  href={MEETING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex min-h-12 items-center
-                    justify-center gap-2 rounded-full bg-white px-5
-                    py-3 text-sm font-bold text-[#2A084E]
-                    transition hover:bg-purple-100
-                    focus-visible:outline-2 focus-visible:outline-offset-2
-                    focus-visible:outline-white"
-                >
-                  <Video size={18} />
-                  Join the Webinar
-                  <ArrowUpRight size={17} />
-                </a>
+                    {error && (
+                      <p className="text-xs text-red-300">{error}</p>
+                    )}
 
-                <p className="mt-3 text-center text-[11px]
-                  text-purple-200/70">
-                  Click to open the meeting in a new tab
-                </p>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="mt-2 inline-flex w-full min-h-12 items-center
+                        justify-center gap-2 rounded-full bg-white px-5
+                        py-3 text-sm font-bold text-[#2A084E]
+                        transition hover:bg-purple-100
+                        focus-visible:outline-2 focus-visible:outline-offset-2
+                        focus-visible:outline-white disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={18} className="animate-spin" />
+                          Registering...
+                        </>
+                      ) : (
+                        "Register"
+                      )}
+                    </button>
+                  </form>
+                ) : (
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <CheckCircle2 size={32} className="text-green-400" />
+                    <p className="text-sm font-bold text-white">
+                      You're registered!
+                    </p>
+                    <p className="text-xs text-purple-200">
+                      Use the link below to join the webinar at the scheduled time.
+                    </p>
+
+                    <a
+                      href={MEETING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex w-full min-h-12 items-center
+                        justify-center gap-2 rounded-full bg-white px-5
+                        py-3 text-sm font-bold text-[#2A084E]
+                        transition hover:bg-purple-100
+                        focus-visible:outline-2 focus-visible:outline-offset-2
+                        focus-visible:outline-white"
+                    >
+                      <Video size={18} />
+                      Join the Webinar
+                      <ArrowUpRight size={17} />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
 
