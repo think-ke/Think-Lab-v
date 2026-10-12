@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 const MEETING_URL = "https://meet.google.com/rph-mtwa-kys";
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
 export default function WebinarPopup() {
   const [isOpen, setIsOpen] = useState(false);
   
