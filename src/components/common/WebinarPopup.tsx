@@ -9,7 +9,7 @@ import {
   X,
 } from "lucide-react";
 
-const MEETING_URL = "https://MEETING-LINK";
+const MEETING_URL = "https://meet.google.com/rph-mtwa-kys";
 
 export default function WebinarPopup() {
   const [isOpen, setIsOpen] = useState(false);
