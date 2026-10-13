@@ -10,7 +10,6 @@ import Newsletter from "../components/home/Newsletter";
 import Footer from "../components/home/Footer";
 import Services from "../components/home/Services";
 import OrgCarousel from "../components/common/OrgCarousel";
-import WebinarPopup from "../components/common/WebinarPopup";
 const Home = () => {
   return (
     <>
