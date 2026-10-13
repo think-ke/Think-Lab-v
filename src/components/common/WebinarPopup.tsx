@@ -12,15 +12,19 @@ import {
 
 const MEETING_URL = "https://meet.google.com/rph-mtwa-kys";
 const API_BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
+
+
 export default function WebinarPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   // Registration state
   const [step, setStep] = useState<"register" | "success">("register");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [meetingUrl, setMeetingUrl] = useState(MEETING_URL);
+  const [emailSent, setEmailSent] = useState(false);
 
   useEffect(() => {
     setIsOpen(true);
@@ -46,9 +50,7 @@ export default function WebinarPopup() {
     try {
       const response = await fetch(`${API_BASE_URL}/webinar/register`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, email }),
       });
 
@@ -56,6 +58,9 @@ export default function WebinarPopup() {
         throw new Error("Registration failed. Please try again.");
       }
 
+      const data = await response.json();
+      if (data?.meetingUrl) setMeetingUrl(data.meetingUrl);
+      setEmailSent(Boolean(data?.emailSent));
       setStep("success");
     } catch (err: any) {
       setError(err.message || "Something went wrong. Please try again.");
@@ -222,7 +227,7 @@ export default function WebinarPopup() {
                     <p className="text-xs leading-5 text-purple-200">
                       Register to get the meeting link.
                     </p>
-                    
+
                     <div>
                       <label htmlFor="fullName" className="sr-only">Full Name</label>
                       <input
@@ -235,7 +240,7 @@ export default function WebinarPopup() {
                         className="w-full rounded-lg bg-white/10 px-4 py-2.5 text-sm text-white placeholder-purple-200/70 border border-white/10 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="sr-only">Email Address</label>
                       <input
@@ -279,20 +284,28 @@ export default function WebinarPopup() {
                     <p className="text-sm font-bold text-white">
                       You're registered!
                     </p>
-                    <p className="text-xs text-purple-200">
-                      Use the link below to join the webinar at the scheduled time.
-                    </p>
+
+                    {emailSent ? (
+                      <p className="text-xs text-purple-200">
+                        We've sent the meeting link to <span className="font-semibold text-white">{email}</span>.
+                        You can also join using the button below.
+                      </p>
+                    ) : (
+                      <p className="text-xs text-purple-200">
+                        Use the link below to join the webinar at the scheduled time.
+                      </p>
+                    )}
 
                     <a
-                      href={MEETING_URL}
+                      href={meetingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-2 inline-flex w-full min-h-12 items-center
-                        justify-center gap-2 rounded-full bg-white px-5
-                        py-3 text-sm font-bold text-[#2A084E]
-                        transition hover:bg-purple-100
-                        focus-visible:outline-2 focus-visible:outline-offset-2
-                        focus-visible:outline-white"
+      justify-center gap-2 rounded-full bg-white px-5
+      py-3 text-sm font-bold text-[#2A084E]
+      transition hover:bg-purple-100
+      focus-visible:outline-2 focus-visible:outline-offset-2
+      focus-visible:outline-white"
                     >
                       <Video size={18} />
                       Join the Webinar
